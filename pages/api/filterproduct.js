@@ -17,9 +17,6 @@ export default async function handler(req, res) {
     const maxPrice = parseInt(searchParams.get("price[max]") || "100000");
 
 
-
-    console.log("répasdsdasdasd---------------------:", minPrice,maxPrice,categories,sizes,colors,searchParams);
-
     const query = {
        minPrice,
        maxPrice,

@@ -6,7 +6,63 @@ import Image from 'next/image';
 import axios from 'axios'
 
 import Filter from '../components/container/Filter'
-
+const products2 = [
+  {
+    id: 1,
+    name: 'Basic Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$35',
+    color: 'Black',
+  },
+  {
+    id: 2,
+    name: 'Basic Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$35',
+    color: 'Black',
+  },
+  {
+    id: 3,
+    name: 'Basic Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$35',
+    color: 'Black',
+  },
+  {
+    id: 4,
+    name: 'Basic Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$35',
+    color: 'Black',
+  },
+  {
+    id: 1,
+    name: 'Basic Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$35',
+    color: 'Black',
+  },
+  {
+    id: 5,
+    name: 'Basic Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$35',
+    color: 'Black',
+  },
+  // More products...
+]
 
 const Page = (props) => {
     const [showFilter, setShowFilter] = useState(false)
@@ -39,7 +95,7 @@ const Page = (props) => {
                     }
                 })
                 .then((response) => {
-                    console.log("response`;--------------",response.data.products[0].attributes.thumbnail.data.attributes.url)
+                    console.log("response`;--------------",response.data.products)
                     setResponse(response.data.products)
                 })
             }catch(error){
@@ -50,7 +106,7 @@ const Page = (props) => {
     }, [selectedCategories, selectedSize,selectedHexValues,price])
 
     return (
-        <div className='bg-white flex mx-auto mx-4'>
+        <div className='bg-white flex mx-auto mx-4 border-solid border-2 border-indigo-600 rounded-lg'>
             {/* Filter Component */}
             <Filter
               selectedCategories={selectedCategories}
@@ -68,43 +124,35 @@ const Page = (props) => {
     
           <div className='p-4'>
             {/* Product List */}
-            <h1 className='text-2xl font-medium'>Filtered Clothings</h1>
-            <div className='grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 md:gap-20 gap-12 mt-5'>
-              {response.map((product) => (
-                <div key={product.id}>
-                  <Link
-                    href={`/product/${product.slug}`}
-                    className="transform overflow-hidden bg-white duration-200 hover:scale-105 cursor-pointer"
-                  >
-                    <Image
-                      width={500}
-                      height={500}
-                      src={product.attributes.thumbnail.data.attributes.url} 
-                      alt={product.attributes.name}
-                    />
-                    <div className="p-4 text-black/[0.9]">
-                      <h2 className="text-lg font-medium">{product.attributes.name}</h2>
-                      <div className="flex items-center text-black/[0.5]">
-                        <p className="mr-2 text-lg font-semibold">
-                          &#8377;{product.attributes.price}
-                        </p>
-                        {product.attributes.original_price && (
-                          <>
-                            <p className="text-base  font-medium line-through">
-                              &#8377;{product.attributes.original_price}
-                            </p>
-                            <p className="ml-auto text-base font-medium text-green-500">
-                              10
-                              % off
-                            </p>
-                          </>
-                        )}
-                      </div>
-                    </div>
-                  </Link>
+            <h1 className='text-2xl font-medium'>Tất Cả Sản Phẩm</h1>
+            <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-5 xl:gap-x-8">
+          {response.map((product) => (
+            <div key={product.id} className="group relative">
+              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                <img
+                  src={product.attributes.thumbnail.data.attributes.url}
+                  alt={product.imageAlt}
+                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                />
+              </div>
+              <div className="mt-4 flex justify-between">
+                <div>
+                  <h3 className="text-sm text-gray-700">
+                    <a href={`/product/${product.attributes.slug}`}>
+                      <span aria-hidden="true" className="absolute inset-0" />
+                      {product.attributes.name}
+                    </a>
+                  </h3>
+                  <div
+          className="w-[40px] h-[40px] mt-4 rounded-2xl border-[0.5px] border-neutral-300 cursor-pointer"
+          style={{ backgroundColor: `${product.attributes.color}` }}
+        ></div>
                 </div>
-              ))}
+                <p className="text-sm font-medium text-gray-900">{product.attributes.price}</p>
+              </div>
             </div>
+          ))}
+        </div>
           </div>
         </div>
       );

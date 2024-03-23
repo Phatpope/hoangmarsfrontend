@@ -3,26 +3,33 @@ import axios from 'axios';
 import styles from '../styles';
 import { motion } from 'framer-motion';
 import ProductCard from './ProductCard';
+import { fetchDataFromApi } from '../utils/api';
+import useSWR from "swr";
 
 const AllTest = ({ category }) => {
-    const [products, setProducts] = useState([]);
+    // const [products, setProducts] = useState([]);
     const [selectedGen, setSelectedGen] = useState([]);
     const [priceRange, setPriceRange] = useState({ from: '', to: '' });
     const [sortBy, setSortBy] = useState(''); // Add the selected sort option here
+    const { data: products, error } = useSWR(`/api/products?populate=*&[filters][category][slug][$eq]=${category}`,
+    fetchDataFromApi);
+
+    console.log("aaaaaaa",products)
+
 
     useEffect(() => {
         // Fetch product data from the API with sort and filter parameters
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:1337/api/products?populate=*', {
-                    params: {
-                        selectedGen, // Pass selected generation(s) for filtering
-                        priceRange, // Pass price range for filtering
-                        sortBy, // Pass the selected sort option
-                    },
-                });
-                setProducts(response.data);
-                console.log(response.data.data[0]);
+                // const {response,error} = useSWR(`/api/products?populate=*&[filters][category][slug][$eq]=${category}`,
+                // fetchDataFromApi);
+            
+
+                // setProducts(response.data);
+                // console.log(response.data.data[0]);
+                // console.log(response2.data.data[0],"zzzzzzzzzzzzzzzz");
+                console.log("refetch.....")
+
             } catch (error) {
                 console.error('Error fetching product data:', error);
             }
@@ -251,11 +258,23 @@ const AllTest = ({ category }) => {
                 </div>
             </div>
 
-            <ul className="mt-4 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-                {products?.data?.map((product) => (
-                    <ProductCard key={product?.id} data={product} />
-                ))}
-            </ul>
+            {/* products grid start */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 my-14 px-5 md:px-0">
+                    {products?.data?.map((product) => (
+                        <ProductCard key={product?.id} data={product} />
+                    ))}
+                    {/* <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard /> */}
+                </div>
+                {/* products grid end */}
+
         </section>
     );
 };

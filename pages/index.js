@@ -15,7 +15,7 @@ const Home = () => (
     </div>
     {/* <AllProducts/> */}
     <AllTest category={"Macbook"}/>
-    <AllTest category={"Iphone"}/>
+    <AllTest category={"iphone"}/>
 
     <AllTest category={"Ipad"}/>
 

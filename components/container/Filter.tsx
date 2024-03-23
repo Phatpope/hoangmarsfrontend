@@ -107,7 +107,7 @@ const Filter = (props: Props) => {
 
     const allHexValue = props.allHexValues
   return (
-    <div className='relative bg-red-500'>
+    <div className='relative border-solid border-2 border-indigo-600 rounded-lg'>
             <div className={`md:w-[250px] border-l-[0.5px] border-r-[0.5px] ${showFilter ? "max-md:w-[250px]":"w-0 max-md:invisible"}`}>
                 <div className='flex items-center justify-between px-5 py-4 border-b-[0.5px]'>
                         <h1 className='text-neutral-700 text-black'>Filters</h1>
@@ -116,7 +116,7 @@ const Filter = (props: Props) => {
                 <div className='flex flex-col py-3 pb-5 tet-sm text-neutral-600 border-b-[0.5px]'>
                     <span
                         className={`py-3 px-5 ${props.selectedCategories.includes('iPhone') ? "bg-purple-50":""}`}
-                        onClick={() => toggleCategory('iPhone')}
+                        onClick={() => toggleCategory('iphone')}
                     >
                         iPhone
                     </span>
@@ -166,7 +166,7 @@ const Filter = (props: Props) => {
                 </div>
                 <div className='border-b-[0.5px]'>
                     <div className='flex items-center justify-between px-5 py-4 border-b-[0.5px] mb-5'>
-                        <h1 className='text-neutral-800 bg-cyan-500'>Colors</h1>
+                        <h1 className='text-neutral-800 '>Colors</h1>
                     </div>
                     <ul className='grid grid-cols-4 px-5 gap-5 mb-4'>
                         {allHexValue.map((hexvalue, index) => (
@@ -174,6 +174,8 @@ const Filter = (props: Props) => {
       key={index}
       className={`w-[40px] h-[40px] rounded-2xl border-[0.5px] border-neutral-300 cursor-pointer ${props.selectedHexValues.includes(`#${hexvalue}`) ? "shadow-2xl opacity-25" : `bg-${hexvalue}`}`}
       onClick={() => toggleColor(`#${hexvalue}`)}
+      style={{backgroundColor: `#${hexvalue}`}}
+
     >
     </li>
                         ))}
@@ -181,44 +183,44 @@ const Filter = (props: Props) => {
                 </div>
                 <div className='sizes'>
                     <div className='flex items-center justify-between px-5 py-4 border-b-[0.5px] mb-5'>
-                        <h1 className='text-neutral-800'>sizes</h1>
+                        <h1 className='text-neutral-800 '>Sizes</h1>
                     </div>
                     <ul className='grid grid-cols-4 px-5 gap-5'>
                         <li
                         className={`border-[0.5px] rounded-lg text-center text-dark text-[14px] py-[2px] cursor-pointer ${props.selectedSize.includes('SM') ? 'bg-neutral-900 text-white':''}`}
                         onClick={() => togglesize('SM')}
                         >
-                            SM
+                            16GB
                         </li>
                         <li
                         className={`border-[0.5px] rounded-lg text-center text-[14px] py-[2px] cursor-pointer ${props.selectedSize.includes('MD') ? 'bg-neutral-900 text-white':''}`}
                         onClick={() => togglesize('MD')}
                         >
-                            MD
+                            32GB
                         </li>
                         <li
                         className={`border-[0.5px] rounded-lg text-center text-[14px] py-[2px] cursor-pointer ${props.selectedSize.includes('XL') ? 'bg-neutral-900 text-white':''}`}
                         onClick={() => togglesize('XL')}
                         >
-                            XL
+                            64GB
                         </li>
                         <li
                         className={`border-[0.5px] rounded-lg text-center text-[14px] py-[2px] cursor-pointer ${props.selectedSize.includes('2XL') ? 'bg-neutral-900 text-white':''}`}
                         onClick={() => togglesize('2XL')}
                         >
-                            2XL
+                            128GB
                         </li>
                         <li
                         className={`border-[0.5px] rounded-lg text-center text-[14px] py-[2px] cursor-pointer ${props.selectedSize.includes('3XL') ? 'bg-neutral-900 text-white':''}`}
                         onClick={() => togglesize('3XL')}
                         >
-                            3XL
+                            256GB
                         </li>
                         <li
                         className={`border-[0.5px] rounded-lg text-center text-[14px] py-[2px] cursor-pointer ${props.selectedSize.includes('4XL') ? 'bg-neutral-900 text-white':''}`}
                         onClick={() => togglesize('2XL')}
                         >
-                            4XL
+                            512GB
                         </li>
                     </ul>
                 </div>
