@@ -3,26 +3,36 @@ export const exploreWorlds = [
     id: 'world-1',
     imgUrl: '/planet-01.png',
     title: 'IPhone',
+    category: 'Iphone',
+
   },
   {
     id: 'world-2',
     imgUrl: '/planet-02.png',
     title: 'Macbook',
+    category: 'Macbook',
+
   },
   {
     id: 'world-3',
     imgUrl: '/planet-03.png',
     title: 'IPad',
+    category: 'Ipad',
+
   },
   {
     id: 'world-4',
     imgUrl: '/planet-04.png',
     title: 'Apple Accessories',
+    category: 'Accessories',
+
   },
   {
     id: 'world-5',
     imgUrl: '/planet-05.png',
     title: 'Linh Kiện',
+    category: 'LinhKien',
+
   },
 ];
 

@@ -33,6 +33,7 @@ const Explore = () => {
               index={index}
               active={active}
               handleClick={setActive}
+              cate={world.category}
             />
           ))}
         </div>

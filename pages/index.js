@@ -6,8 +6,6 @@ import AllTest from '../sections/Alltest';
 const Home = () => (
   <div className="bg-primary-black overflow-hidden">
     <Hero />
-    
-    <p>aaaaaaaa</p>
     <div className="relative">
       <About />
       <div className="gradient-03 z-0" />
@@ -15,11 +13,9 @@ const Home = () => (
     </div>
     {/* <AllProducts/> */}
     <AllTest category={"Macbook"}/>
-    <AllTest category={"iphone"}/>
-
+    <AllTest category={"Iphone"}/>
     <AllTest category={"Ipad"}/>
-
-    <AllTest category={"Applewatch"}/>
+    <AllTest category={"Accessories"}/>
 
     <div className="relative">
       <GetStarted />
