@@ -1,5 +1,6 @@
 import { Footer, Navbar} from '../components';
 import { About, Explore, Feedback, GetStarted, Hero, Insights, WhatsNew, World } from '../sections';
+import Search from '../sections/Search';
 // import AllProducts from '../sections/AllProducts';
 import AllTest from '../sections/Alltest';
 
@@ -11,6 +12,7 @@ const Home = () => (
       <div className="gradient-03 z-0" />
       <Explore />
     </div>
+    <Search/>
     {/* <AllProducts/> */}
     <AllTest category={"Macbook"}/>
     <AllTest category={"Iphone"}/>
