@@ -20,12 +20,12 @@ const About = () => (
 
       <motion.p
         variants={fadeIn('up', 'tween', 0.2, 1)}
-        className="mt-[8px] font-normal sm:text-[32px] text-[20px] text-center text-secondary-white"
+        className="mt-[8px] font-normal sm:text-[32px] text-[10px] text-center text-secondary-white"
       >
         <span className="font-extrabold text-white">MarApple</span> là chuyên cung cấp sản phẩm Apple, 
-         với những kỹ thuật viên chuyên nghiệp và tận tâm, được Apple đào tạo. Shop luôn tuân theo những tiêu chuẩn nghiêm ngặt và cao cấp, cam kết
-         sử dụng những linh kiện chính thức từ Apple nhằm mang lại trải nghiệm Apple tốt nhất cho quý khách hàng khi mua các sản phẩm tại đây.{' '}
-         Thời gian bảo hành hãng lên đến 90 ngày hoặc theo thời gian bảo hành còn lại của thiết bị quý khách.. Let's{' '}
+         với những kĩ thuật viên chuyên nghiệp và tận tâm. Shop luôn cam kết
+         sử dụng những linh kiện chính thức từ Apple nhằm mang lại trải nghiệm Apple tốt nhất cho khách hàng khi mua các sản phẩm tại đây.{' '}
+         Thời gian bảo hành hãng lên đến 1 năm hoặc theo thời gian bảo hành còn lại của thiết bị quí khách.. Let's{' '}
       
       </motion.p>
 

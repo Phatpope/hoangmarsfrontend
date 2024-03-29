@@ -95,7 +95,7 @@ const ProductDetail = ()=>{
 
     return (
         
-            <section className="py-12 sm:py-16 bg-white"> 
+            <section className="py-12 sm:py-16 bg-white sm:px-10"> 
   <div className="container mx-auto px-4">
     <nav className="flex">
       <ol role="list" className="flex items-center">

@@ -19,7 +19,7 @@ export default function Layout({ children }) {
         <Navbar />
         <InsightRoll insights={insights} />
 
-      <main className="p-8 rounded">{children}</main>
+      <main className="p-4 rounded">{children}</main>
       <Footer />
 
         </div>

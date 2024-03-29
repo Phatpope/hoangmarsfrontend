@@ -99,7 +99,7 @@ const Page = (props) => {
                     setResponse(response.data.products)
                 })
             }catch(error){
-                console.log('error', error)
+                console.log('error---------', error)
             }
         };
         fetchdata()

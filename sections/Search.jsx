@@ -2,34 +2,22 @@ import { MeiliSearch } from "meilisearch";
 import { useEffect, useState } from "react";
 import { useRef } from "react";
 import Image from 'next/image';
-
-
+import Link from 'next/link'; // Import Link from Next.js
 
 const host = process.env.NEXT_PUBLIC_MEILISEARCH_HOST
 const key = process.env.NEXT_PUBLIC_MEILISEARCH_API_KEY
 
-
-
 const client = new MeiliSearch({
     host: host,
-    apiKey: key, // Use apiKey property instead of setting Authorization header manually
-    
+    apiKey: key,
 });
 
-
-
-
 const Search = () => {
-    const API_URL1 = process.env.MEILISEARCH_API_KEY
-    // apikey = process.env.MEILISEARCH_API_KEY
-
     const [products, setProducts] = useState([]);
     const [search, setSearch] = useState("");
-
-    const clickPoint = useRef(null); // Initialize clickPoint with null
+    const clickPoint = useRef(null);
 
     const handleFocus = () => {
-        // Check if clickPoint.current is defined before accessing its style property
         if (clickPoint.current) {
             clickPoint.current.style.display = "none";
         }
@@ -42,7 +30,6 @@ const Search = () => {
     };
 
     useEffect(() => {
-        //search movie index based on search value
         client
             .index("product")
             .search(search)
@@ -67,23 +54,27 @@ const Search = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
                 {products?.map((product) => (
-                    <div className="border border-gray-300 rounded-lg p-4 relative" key={product.id}>
-                        <div className="flex items-center justify-around h-full">
-                            <div className="text-center flex flex-col">
-                                <h2 className="text-xl font-semibold mt-2">{product.name}</h2>
-                                <p className="text-gray-700 mt-2">${product.price}</p>
-                            </div>
-                           
-                            <div className="w-32 h-32 border border-gray-300 shadow-lg rounded-lg overflow-hidden relative">
-                                <Image
-                                    src={product.thumbnail.url}
-                                    layout="fill"
-                                    objectFit="cover"
-                                    alt={product.name}
-                                />
+                    <Link href={`/product/${product.slug}`} key={product.id}>
+                        <div className="border border-gray-300 rounded-lg p-4 relative  group block  hover:bg-gray-200">
+                            <div className="flex items-center justify-around h-full">
+                                <div className="text-center flex flex-col">
+                                    <h2 className="text-xl font-semibold mt-2 text-white group-hover:text-black">{product.name}</h2>
+                                    <p className="text-white group-hover:text-green-500 mt-2">${product.price}</p>
+                                </div>
+                               
+                                <div className="w-32 h-32 border border-gray-300 shadow-lg rounded-lg overflow-hidden relative">
+                                    <Image
+                                        src={product.thumbnail.url}
+                                        layout="fill"
+                                        objectFit="cover"
+                                        alt={product.name}
+                                    />
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        
+                    </Link>
+                    
                 ))}
             </div>
         </div>

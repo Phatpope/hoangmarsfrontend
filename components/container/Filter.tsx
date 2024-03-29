@@ -181,7 +181,7 @@ const Filter = (props: Props) => {
                         ))}
                     </ul>
                 </div>
-                <div className='sizes'>
+                <div className='sizes px-auto py-20'>
                     <div className='flex items-center justify-between px-5 py-4 border-b-[0.5px] mb-5'>
                         <h1 className='text-neutral-800 '>Sizes</h1>
                     </div>

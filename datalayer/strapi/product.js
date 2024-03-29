@@ -14,7 +14,7 @@ export const getProductsColors = async () => {
   );
 
   try {
-    const res = await axios.get(`${apiUrl}/products?${query}`);
+    const res = await axios.get(`${apiUrl}/api/products?${query}`);
     return res.data.data.map((rawColor) => rawColor.attributes.color);
   } catch (error) {
     console.error('Error fetching product colors:', error);
@@ -90,7 +90,7 @@ export const searchProducts = async (query) => {
   }
 
   const strapiQueryStr = qs.stringify(strapiQuery, { encodeValuesOnly: true });
-  const res = await axios.get(`${apiUrl}/products?${strapiQueryStr}`);
+  const res = await axios.get(`${apiUrl}/api/products?${strapiQueryStr}`);
   const products = res.data.data;
 
   return products;
