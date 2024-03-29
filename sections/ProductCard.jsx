@@ -23,10 +23,10 @@ const ProductCard = ({ data: { attributes: p, id } }) => {
       <div className="flex justify-between pt-4">
         <div className="ml-6">
           <h3 className="text-sm text-gray-700">{p.name}</h3>
-          <p className="mt-1 text-sm text-gray-500">{p.price}</p>
+          <p className="mt-1 text-sm text-gray-500">{p.price}đ</p>
         </div>
         <div className="mr-4 flex flex-col justify-end">
-          <p className="text-sm font-medium text-gray-900">$35</p>
+          <p className="text-sm font-medium text-gray-900 line-through">{p.original_price}đ</p>
           <p className="text-base font-medium text-sm text-green-500">
             {getDiscountedPricePercentage(10000000, 900000)}% off
           </p>

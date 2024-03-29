@@ -59,7 +59,7 @@ const Search = () => {
                             <div className="flex items-center justify-around h-full">
                                 <div className="text-center flex flex-col">
                                     <h2 className="text-xl font-semibold mt-2 text-white group-hover:text-black">{product.name}</h2>
-                                    <p className="text-white group-hover:text-green-500 mt-2">${product.price}</p>
+                                    <p className="text-white group-hover:text-green-500 mt-2">{product.price} đ</p>
                                 </div>
                                
                                 <div className="w-32 h-32 border border-gray-300 shadow-lg rounded-lg overflow-hidden relative">
