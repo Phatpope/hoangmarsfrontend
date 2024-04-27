@@ -1,23 +1,15 @@
+'use client';
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 import styles from '../styles';
+import { exploreWorlds } from '../constants';
 import { staggerContainer } from '../utils/motion';
 import { ExploreCard, TitleText, TypingText } from '../components';
-import { exploreWorlds } from '../constants';
 
-const Explore = ({ categories }) => {
+const Explore = ({categories}) => {
   const [active, setActive] = useState('world-2');
-
-  // Combine exploreWorlds with categories
-  const combinedData = [
-    ...exploreWorlds, // Use existing exploreWorlds data
-    ...categories.map(category => ({
-      id: category.id,
-      title: category.attributes.name,
-      cate: category.attributes.name
-    }))
-  ];
 
   return (
     <section className={`${styles.paddings}`} id="explore">
@@ -34,13 +26,14 @@ const Explore = ({ categories }) => {
           textStyles="text-center"
         />
         <div className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5">
-          {combinedData.map((item, index) => (
+          {exploreWorlds.map((world, index) => (
             <ExploreCard
-              key={item.id || index} // Use id if available, otherwise use index
-              title={item.title}
-              cate={item.cate}
+              key={world.id}
+              {...world}
+              index={index}
               active={active}
               handleClick={setActive}
+              cate={world.category}
             />
           ))}
         </div>
