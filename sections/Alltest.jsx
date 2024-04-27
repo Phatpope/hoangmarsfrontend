@@ -11,7 +11,7 @@ const AllTest = ({ category }) => {
     const [selectedGen, setSelectedGen] = useState([]);
     const [priceRange, setPriceRange] = useState({ from: '', to: '' });
     const [sortBy, setSortBy] = useState(''); // Add the selected sort option here
-    const { data: products, error } = useSWR(`/api/products?populate=*&[filters][category][slug][$eq]=${category}`,
+    const { data: products, error } = useSWR(`/api/products?populate=*&[filters][category][name][$eq]=${category}`,
     fetchDataFromApi);
 
     console.log("aaaaaaa",products)
