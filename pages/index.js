@@ -24,7 +24,7 @@ const Home = () => {
             }
         }]} /> {/* Pass categories as prop */}
       </div>
-      <Search />
+      {/* <Search /> */}
       
       {/* Map over categories and render AllTest components */}
       {categories && categories.data.map(category => (
