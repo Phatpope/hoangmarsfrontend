@@ -55,7 +55,7 @@ const productData = {
   ],
 };
 
-const p = productData.data[0].attributes;
+const p = productData.data[0]?.attributes;
 
 
 
@@ -135,16 +135,16 @@ const ProductDetail = ()=>{
           </div>
 
           <div className="mt-2 w-full lg:order-1 lg:w-32 lg:flex-shrink-0">
-          {data11.data[0].attributes.image.data.map((image, index) => (
+          {data11.data[0]?.attributes.image.data.map((image, index) => (
                 <button
                   key={index}
                   type="button"
                   className={`flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 ${
-                    selectedImage === image.attributes.url ? "border-gray-900" : "border-transparent"
+                    selectedImage === image?.attributes.url ? "border-gray-900" : "border-transparent"
                   } text-center`}
-                  onClick={() => handleImageClick(image.attributes.url)}
+                  onClick={() => handleImageClick(image?.attributes.url)}
                 >
-                  <img className="h-full w-full object-cover" src={image.attributes.url} alt="" />
+                  <img className="h-full w-full object-cover" src={image?.attributes.url} alt="" />
                 </button>
               ))}
           </div>
@@ -152,7 +152,7 @@ const ProductDetail = ()=>{
       </div>
 
       <div className="lg:col-span-2 lg:row-span-2 lg:row-end-2">
-        <h1 className="sm: text-2xl font-bold text-gray-900 sm:text-3xl">{data11?.data[0].attributes.name}</h1>
+        <h1 className="sm: text-2xl font-bold text-gray-900 sm:text-3xl">{data11?.data[0]?.attributes.name}</h1>
         <div>
     </div>
 
@@ -290,7 +290,7 @@ const ProductDetail = ()=>{
             
             {/* The Role */}
             <div className="prose my-10">
-            <BlocksRenderer content={data11?.data[0].attributes.dacdiem} />;
+            <BlocksRenderer content={data11?.data[0]?.attributes.dacdiem} />;
 
             </div>
             
